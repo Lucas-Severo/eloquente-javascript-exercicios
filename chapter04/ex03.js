@@ -26,6 +26,14 @@ function listToArray(list) {
     return arr;
 }
 
+function prepend(element, list) {
+    const newList = {
+        value: element,
+        rest: list
+    };
+    return newList;
+}
+
 function nth(list, index) {
     if(index === 0)
         return list.value;
@@ -38,6 +46,9 @@ function nth(list, index) {
 console.log(arrayToList([10, 20]));
 console.log(arrayToList([10, 20, 30]));
 console.log(listToArray(arrayToList([10, 20, 30])));
+
+console.log(prepend(10, prepend(20, null)));
+console.log(prepend(10, prepend(20, prepend(30, null))));
 
 console.log(nth(arrayToList([10, 20, 30]), 1));
 console.log(nth(arrayToList([10, 20, 30]), 2));
